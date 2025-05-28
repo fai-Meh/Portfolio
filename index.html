@@ -1,11 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title> <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    IN PROGRESS
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Reenie+Beanie&display=swap"
+      rel="stylesheet"
+    />
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <header>
+      <div class="nav-mobile">
+        <div class="close-icon">
+          <img
+            onclick="closeMenu()"
+            src="/portfolio/assets/closeIcon.svg"
+            alt="closeIcon"
+          />
+        </div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="menu" onclick="openMenu()">
+        <img src="/portfolio/assets/menu.svg" alt="nav-menu" />
+      </div>
+      <div class="hero-group">
+        <div class="background"></div>
+        <div>
+          <img class="hero-name" src="./assets/name.svg" alt="name" />
+          <img class="hero-image" src="./assets/hero-banner.svg" alt="name" />
+        </div>
+        <div class="hero-nav">
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div id="about" class="about">
+        <div class="about-text">
+          <h2>About me</h2>
+          <p>
+            Hi, I’m Fai Mehjazi, a graphic design student at AP high school.
+          </p>
+
+          <p>
+            I simplify complexity through observation and logical thinking. My
+            work is soft and expressive, using line, rhythm and form to
+            communicate subtle but powerful emotions.
+          </p>
+
+          <p>
+            I’m currently exploring how personal data can be visualized through
+            line-based illustrations, turning habits and observations into
+            meaningful, visual stories.
+          </p>
+        </div>
+        <img class="about-avatar" src="./assets/avatar.svg" alt="avatar" />
+      </div>
+      <div class="lines">
+        <h2>Lines about me</h2>
+        <div class="lines-grid">
+          <div class="line1">
+            <img src="./assets/Confusion.jpg" alt="Confusion" />
+            <div>A week of <span class="confusion">Confusion</span></div>
+          </div>
+          <div class="line2">
+            A week of <span class="peace">Peace</span>
+            <div><img src="./assets/Peace.jpg" alt="Peace" /></div>
+          </div>
+        </div>
+      </div>
+      <div class="lines">
+        <div class="lines-grid">
+          <div class="line1">
+            <img src="./assets/anxiety.jpg" alt="Anxiety" />
+            <div>A week of <span class="anxiety">Anxiety</span></div>
+          </div>
+          <div class="line2">
+            A week of <span class="burnouts">Burnouts</span>
+            <div><img src="./assets/burnouts.jpg" alt="Burnouts" /></div>
+          </div>
+        </div>
+      </div>
+      <div class="excitement-line">
+        <div class="background"></div>
+        <img src="./assets/excitement.jpg" alt="Excitement" />
+        <div>A week of <span class="excitement">Excitement</span></div>
+      </div>
+    </main>
+    <footer>
+      <div class="arrow-up">
+        <img onclick="scrollToTop()" src="/Portfolio/assets/ArrowUp.svg" alt="arrow-up" />
+      </div>
+      <div id="contact" class="socials">
+        <a href="https://www.facebook.com/" target="_blank"
+          ><img src="/Portfolio/assets/facebookIcon.png" alt="facebook-icon"
+        /></a>
+        <a href="https://www.instagram.com/" target="_blank"
+          ><img src="/Portfolio/assets/instagramIcon.png" alt="instagram-icon"
+        /></a>
+        <a href="https://www.linkedin.com/" target="_blank"
+          ><img src="/Portfolio/assets/linkedinIcon.png" alt="linkedin-icon"
+        /></a>
+      </div>
+    </footer>
+  </body>
+  <script>
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function openMenu() {
+      document.querySelector(".nav-mobile").classList.add("nav-mobile--open");
+    }
+
+    function closeMenu() {
+      document
+        .querySelector(".nav-mobile")
+        .classList.remove("nav-mobile--open");
+    }
+
+ const elements = document.querySelectorAll('.line1, .line2, .excitement-line, .about-avatar, .about-text  ');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  elements.forEach(el => observer.observe(el));
+
+  
+  </script>
 </html>
